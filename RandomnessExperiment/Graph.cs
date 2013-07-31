@@ -6,23 +6,19 @@ using System.Threading.Tasks;
 
 namespace RandomnessExperiment
 {
-    class Graph
+    abstract class Graph
     {
         public int myNumberOfVertices;
         public int myOrder;
         public List<Vertex> myVertices;
 
-        public Graph(int noOfVertices, int order)
+        public void PopulateGraph()
         {
-            myNumberOfVertices = noOfVertices;
-            myOrder = order;
-            myVertices = new List<Vertex>(noOfVertices);
-            ConstructGraph();
-        }
-
-        public void ConstructGraph()
-        {
-            
+            myVertices.Clear();
+            for (int i = 0; i < myNumberOfVertices; i++)
+            {
+                myVertices.Add(new Vertex(myOrder, i));
+            }
         }
     }
 }

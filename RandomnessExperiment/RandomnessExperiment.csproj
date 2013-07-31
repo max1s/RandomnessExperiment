@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Edge.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="OvalGraph.cs" />
+    <Compile Include="RandomnessChecker.cs" />
+    <Compile Include="RandomSeedGraph.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vertex.cs" />

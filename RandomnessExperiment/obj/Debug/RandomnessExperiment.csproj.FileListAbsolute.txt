@@ -1,1 +1,7 @@
 C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Debug\RandomnessExperiment.exe.config
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Debug\RandomnessExperiment.exe.config
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Debug\RandomnessExperiment.csprojResolveAssemblyReference.cache
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Debug\RandomnessExperiment.exe
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Debug\RandomnessExperiment.pdb
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Debug\RandomnessExperiment.exe
+C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Debug\RandomnessExperiment.pdb

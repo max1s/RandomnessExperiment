@@ -8,8 +8,8 @@ namespace RandomnessExperiment
 {
     class Vertex
     {
-        List<Edge> myEdges;
-        int myID;
+        public List<Edge> myEdges;
+        public int myID;
 
         public Vertex(int order, int id)
         {
