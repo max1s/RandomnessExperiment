@@ -16,5 +16,10 @@ namespace RandomnessExperiment
             myEdges = new List<Edge>(order);
             myID = id;
         }
+
+        public override String ToString()
+        {
+            return myID.ToString();
+        }
     }
 }

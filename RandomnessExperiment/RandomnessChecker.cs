@@ -15,7 +15,7 @@ namespace RandomnessExperiment
         public RandomnessChecker(Graph g)
         {
             myGraph = g;
-            randomnessThreshhold = Math.Round(Math.Log(myGraph.myNumberOfVertices, 2.0d));
+            randomnessThreshhold = 2*Math.Ceiling(Math.Log(myGraph.myNumberOfVertices, 2.0d));
             
         }
 

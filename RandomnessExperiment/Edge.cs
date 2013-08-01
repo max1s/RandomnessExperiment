@@ -33,6 +33,11 @@ namespace RandomnessExperiment
                 return false;
 
         }
+
+        public override string ToString()
+        {
+            return "[V1: " + myFirstVertex + " V2: " + mySecondVertex + " ]";
+        }
         
     }
 }

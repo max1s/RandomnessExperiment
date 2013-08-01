@@ -9,7 +9,7 @@ namespace RandomnessExperiment
     class RandomSeedGraph : Graph
     {
        
-        public Random randomSeed = new Random();
+        
         public bool backtrack = false;
 
         public RandomSeedGraph(int noOfVertices, int order)

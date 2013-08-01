@@ -14,8 +14,30 @@ namespace RandomnessExperiment
 
         static void Main(string[] args)
         {
-            OvalGraph og = new OvalGraph(3);
+
+            OvalGraph og = new OvalGraph(5);
             RandomnessChecker rc = new RandomnessChecker(og);
+            int changesInParralel = 1;
+
+            Console.WriteLine("Initially this graph is " + rc.CheckGraph() + " In terms of randomness");
+            for (int i = 0; i < 5; i++)
+            {
+                foreach(Vertex v in og.myVertices)
+                {
+                    Console.Write( "Vertex " + v.myID + " : ");
+                    foreach (Edge e in v.myEdges)
+                    {
+                        Console.Write(e.mySecondVertex + " ");
+                    }
+                    Console.WriteLine();
+                }
+                
+                Console.WriteLine("Passover with: " + changesInParralel + " changes in parralel ");
+                og.NeighbourSwapVertices(1);
+                Console.WriteLine("Time " + (i + 1) + " : " + rc.CheckGraph());
+
+            }
+
             Console.Write(rc.CheckGraph());
             Console.Read();
 
