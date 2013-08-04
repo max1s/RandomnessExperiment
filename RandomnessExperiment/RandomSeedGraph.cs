@@ -60,7 +60,7 @@ namespace RandomnessExperiment
                 }
                               
             }
-            Console.WriteLine("Graph Constructed!");
+            //Console.WriteLine("Graph Constructed!");
             return true;
         }
 

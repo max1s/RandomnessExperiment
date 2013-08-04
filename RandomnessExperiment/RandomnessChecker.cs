@@ -12,10 +12,10 @@ namespace RandomnessExperiment
         Graph myGraph;
         double randomnessThreshhold; 
 
-        public RandomnessChecker(Graph g)
+        public RandomnessChecker(Graph g, int constant)
         {
             myGraph = g;
-            randomnessThreshhold = 5*Math.Ceiling(Math.Log(myGraph.myNumberOfVertices, 2.0d));
+            randomnessThreshhold = constant*Math.Ceiling(Math.Log(myGraph.myNumberOfVertices, 2.0d));
             
         }
 
