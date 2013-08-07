@@ -9,7 +9,7 @@ namespace RandomnessExperiment
     
     class RandomnessChecker
     {
-        Graph myGraph;
+        public Graph myGraph;
         double randomnessThreshhold; 
 
         public RandomnessChecker(Graph g, int constant)
@@ -28,8 +28,10 @@ namespace RandomnessExperiment
             foreach(Vertex v in myGraph.myVertices)
             {
                b = CheckNeighbourList(v);
+               
                if (b == false)
                    return false;
+               Console.Write(".");
             }
             return true;
         }
@@ -38,34 +40,53 @@ namespace RandomnessExperiment
         {
             List<Vertex> myNeighbourList = new List<Vertex>();
             int counter = 0;
-            Vertex lastLink = v;
-            int i  = 0;
+         
 
             //you need some sort of selection process.
             myNeighbourList.Add(v);
-
+            
             while (myNeighbourList.Count < myGraph.myNumberOfVertices)
             {
-                if (!myGraph.myVertices[i].myEdges.Contains(new Edge(i, lastLink.myID)))
-                {
-                    counter++;
-                }
+                
                   
                 if (counter < randomnessThreshhold)
                 {
-                    for (int x = 0; x < myGraph.myOrder; x++)
+                    List<Vertex> staticCopy = new List<Vertex>();
+                    staticCopy = myNeighbourList.ToList();
+                    foreach (Vertex vertex in staticCopy)
                     {
-                        
-                        if (!myNeighbourList.Contains(myGraph.myVertices[myGraph.myVertices[i].myEdges[x].mySecondVertex]))
+                        foreach (Edge e in vertex.myEdges)
                         {
-                            myNeighbourList.Add(myGraph.myVertices[myGraph.myVertices[i].myEdges[x].mySecondVertex]);
+                            if (!myNeighbourList.Contains(myGraph.myVertices[e.mySecondVertex]))
+                            {
+                                myNeighbourList.Add(myGraph.myVertices[e.mySecondVertex]);
+
+                            }
                         }
                     }
+                    counter++;
+                    //for (int x = 0; x < myGraph.myOrder; x++)
+                    //{
+                        
+                    //    if (!myNeighbourList.Contains(myGraph.myVertices[myGraph.myVertices[i].myEdges[x].mySecondVertex]))
+                    //    {
+                    //        myNeighbourList.Add(myGraph.myVertices[myGraph.myVertices[i].myEdges[x].mySecondVertex]);
+                            
+                    //    }
+                        
+                    //}
+                    //Console.Write("[");
+                    //foreach (Vertex vertex in myNeighbourList)
+                    //{
+                    //    Console.Write(vertex + ",");
+                    //}
+                    //Console.Write("]");
+                    //Console.WriteLine();
                 }
                 else
                     return false;
 
-                i++;
+                
             }
             return true;
         }

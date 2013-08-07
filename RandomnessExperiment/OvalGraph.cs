@@ -16,7 +16,6 @@ namespace RandomnessExperiment
 
             PopulateGraph();
             ConstructGraph();
-            Console.WriteLine("Graph Constructed!");
         }
 
         public void ConstructGraph()

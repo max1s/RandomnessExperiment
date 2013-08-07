@@ -55,7 +55,7 @@ namespace RandomnessExperiment
                // Console.WriteLine( " First Vertex picked: " + vertexToSwap.myID);
                // Console.WriteLine(" Second Vertex picked: " + neighbourToSwapWith.myID);
                // Console.WriteLine(" attempt first Edge picked: " + firstEdgetoSwap);
-               // Console.WriteLine(" attempt Edge picked: " + secondEdgetoSwap);
+               // Console.WriteLine(" attempt second Edge picked: " + secondEdgetoSwap);
 
                 bool errorFromOverChoosing = false;
 
@@ -73,7 +73,7 @@ namespace RandomnessExperiment
                         if (!edge.isBeingSwapped && !(edge.mySecondVertex == neighbourToSwapWith.myID))
                         {
                             firstEdgetoSwap = edge;
-                           // Console.WriteLine(" first edge now swapped to: " + firstEdgetoSwap);
+                          //  Console.WriteLine(" first edge now swapped to: " + firstEdgetoSwap);
                             break;
                             
                         }
@@ -92,7 +92,7 @@ namespace RandomnessExperiment
                         if (!edge.isBeingSwapped && !(edge.mySecondVertex == vertexToSwap.myID))
                         {
                             secondEdgetoSwap = edge;
-                          //  Console.WriteLine(" second edge now swapped to: " + secondEdgetoSwap);
+                           // Console.WriteLine(" second edge now swapped to: " + secondEdgetoSwap);
                             break;
                         }
                         errorFromOverChoosing = true;
