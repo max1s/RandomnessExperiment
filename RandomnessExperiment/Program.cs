@@ -17,13 +17,42 @@ namespace RandomnessExperiment
         {
 
             int sizeOfGraph;
-            int randomnessConstant = 10;
+            int randomnessConstant = 1;
             int orderOfGraph = 4;
             List<String> experiment = new List<string>();
-            Torus t = new Torus(30);
-            RandomnessChecker rc = new RandomnessChecker(t, 20);
-            Console.Write(rc.CheckGraph());
-            Console.Read();
+            File.WriteAllLines("C:\\Users\\max1s\\Dropbox\\Second Year CS\\experimentextranighttime.txt", experiment.ToArray());
+
+           
+            for (int j = 1; j < 10; j++)
+            {
+                Console.WriteLine(j);
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine("." + i);
+                    for (sizeOfGraph = 7; sizeOfGraph < 21; sizeOfGraph = sizeOfGraph + 1)
+                    {
+                        
+                        Torus torus = new Torus(sizeOfGraph);
+                        RandomnessChecker rc = new RandomnessChecker(torus, randomnessConstant);
+                        int t = 0;
+                        while (!rc.CheckGraph())
+                        {
+                            
+                            t++;
+                            torus.NeighbourSwapVertices(j);
+                        }
+                        experiment.Add(sizeOfGraph + " " + j + " " + t);
+
+
+                    }
+                }
+            }
+
+            File.WriteAllLines("C:\\Users\\max1s\\Dropbox\\Second Year CS\\experimentextranighttime.txt", experiment.ToArray());
+
+
+
+
 
 
             //for (sizeOfGraph = 10; sizeOfGraph < 200; sizeOfGraph = sizeOfGraph + 2)
@@ -40,7 +69,7 @@ namespace RandomnessExperiment
 
             //}
 
-            //File.WriteAllLines("C:\\Users\\max\\Dropbox\\Second Year CS\\experiment.txt", experiment.ToArray());
+            
                 //while (!rc.CheckGraph())
                 //{
                 //    rc.myGraph.NeighbourSwapVertices(1);
@@ -122,22 +151,7 @@ namespace RandomnessExperiment
                 //        Console.WriteLine("Sorry invalid Inputs!");
                 //    }
                 //}
-                //for (sizeOfGraph = 10; sizeOfGraph < 30; sizeOfGraph = sizeOfGraph + 2)
-                //{
-                //    Console.WriteLine(sizeOfGraph);
-
-                //    OvalGraph og = new OvalGraph(sizeOfGraph);
-                //    RandomnessChecker rc = new RandomnessChecker(og, randomnessConstant);
-                //    int t = 0;
-                //    while (!rc.CheckGraph())
-                //    {
-                //        t++;
-                //        og.NeighbourSwapVertices(2);
-                //    }
-                //    experiment.Add(sizeOfGraph + " " + t);
-
-
-                //}
+                
             
         }
     }

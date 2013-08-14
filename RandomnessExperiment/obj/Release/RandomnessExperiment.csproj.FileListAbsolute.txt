@@ -4,3 +4,9 @@ C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bi
 C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.exe
 C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.pdb
 C:\Users\max\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.csprojResolveAssemblyReference.cache
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Release\RandomnessExperiment.exe.config
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.exe
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.pdb
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Release\RandomnessExperiment.exe
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\bin\Release\RandomnessExperiment.pdb
+C:\Users\Max1s\Dropbox\Second Year CS\RandomnessExperiment\RandomnessExperiment\obj\Release\RandomnessExperiment.csprojResolveAssemblyReference.cache

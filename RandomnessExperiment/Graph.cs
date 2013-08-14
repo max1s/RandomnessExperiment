@@ -26,6 +26,11 @@ namespace RandomnessExperiment
         {
         }
 
+        public void SwapVertices()
+        {
+            //Implement for 17/08/2013
+        }
+
         public void NeighbourSwapVertices(int numberOfSwaps)
         {
 
@@ -62,15 +67,16 @@ namespace RandomnessExperiment
 
                 //basically if the edges are already in use use other ones.....
                 //but if there are simply no edges abort the operation
-
-                if (firstEdgetoSwap.isBeingSwapped || firstEdgetoSwap.mySecondVertex == neighbourToSwapWith.myID)
+                //firstEdgetoSwap.isBeingSwapped ||
+                if (firstEdgetoSwap.mySecondVertex == neighbourToSwapWith.myID)
                 {
                     firstRandom = 0;
                     foreach (Edge edge in vertexToSwap.myEdges)
                     {
                         
                         errorFromOverChoosing = false;
-                        if (!edge.isBeingSwapped && !(edge.mySecondVertex == neighbourToSwapWith.myID))
+                        //!edge.isBeingSwapped && 
+                        if (!(edge.mySecondVertex == neighbourToSwapWith.myID))
                         {
                             firstEdgetoSwap = edge;
                           //  Console.WriteLine(" first edge now swapped to: " + firstEdgetoSwap);
@@ -83,13 +89,15 @@ namespace RandomnessExperiment
                     
                 }
 
-                if (secondEdgetoSwap.isBeingSwapped || secondEdgetoSwap.mySecondVertex == vertexToSwap.myID)
+                //secondEdgetoSwap.isBeingSwapped ||
+                if (secondEdgetoSwap.mySecondVertex == vertexToSwap.myID)
                 {
                     secondRandom = 0;
                     foreach (Edge edge in neighbourToSwapWith.myEdges)
                     {
                         errorFromOverChoosing = false;
-                        if (!edge.isBeingSwapped && !(edge.mySecondVertex == vertexToSwap.myID))
+                        // !edge.isBeingSwapped &&
+                        if (!(edge.mySecondVertex == vertexToSwap.myID))
                         {
                             secondEdgetoSwap = edge;
                            // Console.WriteLine(" second edge now swapped to: " + secondEdgetoSwap);
@@ -127,7 +135,7 @@ namespace RandomnessExperiment
                 secondEdgetoSwap = temp;
 
 
-                firstEdgetoSwap.isBeingSwapped = secondEdgetoSwap.isBeingSwapped = true;
+                //firstEdgetoSwap.isBeingSwapped = secondEdgetoSwap.isBeingSwapped = true;
 
                 //
 
@@ -148,13 +156,13 @@ namespace RandomnessExperiment
             }
             //after main loop we need to now turn the flag off for all the recently changed vertices.
 
-            foreach (Vertex v in myVertices)
-            {
-                foreach (Edge e in v.myEdges)
-                {
-                    e.isBeingSwapped = false;
-                }
-            }
+            //foreach (Vertex v in myVertices)
+            //{
+            //    foreach (Edge e in v.myEdges)
+            //    {
+            //        e.isBeingSwapped = false;
+            //    }
+            //}
         }
     }
 }

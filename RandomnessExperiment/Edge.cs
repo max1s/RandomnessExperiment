@@ -11,13 +11,13 @@ namespace RandomnessExperiment
     {
         public int myFirstVertex;
         public int mySecondVertex;
-        public bool isBeingSwapped;
+        //public bool isBeingSwapped;
 
         public Edge(int firstVertex, int secondVertex)
         {
             myFirstVertex = firstVertex;
             mySecondVertex = secondVertex;
-            isBeingSwapped = false;
+            //isBeingSwapped = false;
         }
 
         //if the numbers are the wrong way round they are still the same edge obviously

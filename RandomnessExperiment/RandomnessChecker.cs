@@ -10,12 +10,14 @@ namespace RandomnessExperiment
     class RandomnessChecker
     {
         public Graph myGraph;
-        double randomnessThreshhold; 
+        double randomnessThreshhold;
+        Vertex v;
 
         public RandomnessChecker(Graph g, int constant)
         {
             myGraph = g;
             randomnessThreshhold = constant*Math.Ceiling(Math.Log(myGraph.myNumberOfVertices, 2.0d));
+            v = myGraph.myVertices[rdm.Next(myGraph.myNumberOfVertices)];
             
         }
 
@@ -24,16 +26,23 @@ namespace RandomnessExperiment
             //find c . log n need to ask stefan about this
 
             bool b;
+            Random rdm = new Random();
 
-            foreach(Vertex v in myGraph.myVertices)
-            {
-               b = CheckNeighbourList(v);
+
+            //Check a vertex V at Random.. Since this is only an approximation doesnt really matter which
+            
+
+            //foreach(Vertex v in myGraph.myVertices)
+            //{
+            b = CheckNeighbourList(v);
+
+            if (!b)
+                return false;
+            else
+                return true;
                
-               if (b == false)
-                   return false;
-               Console.Write(".");
-            }
-            return true;
+            //}
+            
         }
 
         public bool CheckNeighbourList(Vertex v)
