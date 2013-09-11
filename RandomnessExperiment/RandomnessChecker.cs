@@ -12,36 +12,30 @@ namespace RandomnessExperiment
         public Graph myGraph;
         double randomnessThreshhold;
         Vertex v;
+        public Random rdm = new Random();
 
         public RandomnessChecker(Graph g, int constant)
         {
             myGraph = g;
             randomnessThreshhold = constant*Math.Ceiling(Math.Log(myGraph.myNumberOfVertices, 2.0d));
             v = myGraph.myVertices[rdm.Next(myGraph.myNumberOfVertices)];
+            //Console.WriteLine(randomnessThreshhold);
+            //Console.WriteLine(myGraph.myNumberOfVertices);
             
         }
 
         public bool CheckGraph()
         {
-            //find c . log n need to ask stefan about this
 
             bool b;
-            Random rdm = new Random();
-
-
-            //Check a vertex V at Random.. Since this is only an approximation doesnt really matter which
-            
-
-            //foreach(Vertex v in myGraph.myVertices)
-            //{
+                    
             b = CheckNeighbourList(v);
 
             if (!b)
                 return false;
             else
                 return true;
-               
-            //}
+
             
         }
 
@@ -66,6 +60,7 @@ namespace RandomnessExperiment
                     {
                         foreach (Edge e in vertex.myEdges)
                         {
+                            //Console.WriteLine(e.myFirstVertex + " " + e.mySecondVertex);
                             if (!myNeighbourList.Contains(myGraph.myVertices[e.mySecondVertex]))
                             {
                                 myNeighbourList.Add(myGraph.myVertices[e.mySecondVertex]);
@@ -84,6 +79,7 @@ namespace RandomnessExperiment
                     //    }
                         
                     //}
+                    //Console.WriteLine("[" + v.myEdges[0] + "," + v.myEdges[1] + "," + v.myEdges[2] + "," + v.myEdges[3] + "]" + myNeighbourList.Count);
                     //Console.Write("[");
                     //foreach (Vertex vertex in myNeighbourList)
                     //{
@@ -91,12 +87,14 @@ namespace RandomnessExperiment
                     //}
                     //Console.Write("]");
                     //Console.WriteLine();
+                   // Console.Read();
                 }
                 else
                     return false;
 
                 
             }
+            //Console.WriteLine("OK!");
             return true;
         }
 

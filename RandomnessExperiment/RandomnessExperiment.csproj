@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CubeGraph.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="Graph.cs" />
+    <Compile Include="LoopGraph.cs" />
     <Compile Include="OvalGraph.cs" />
     <Compile Include="RandomnessChecker.cs" />
     <Compile Include="RandomSeedGraph.cs" />

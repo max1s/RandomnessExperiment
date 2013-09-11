@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace RandomnessExperiment
 {
-    class Torus : Graph
+    class TorusGraph : Graph
     {
 
         public int myWidth;
+        public int myHeight;
 
-        public Torus(int width)
+        public TorusGraph(int width, int height)
         {
             myWidth = width;
+            myHeight = height;
             myOrder = 4;
-            myNumberOfVertices = width * width;
+            myNumberOfVertices = width * height;
             myVertices = new List<Vertex>();
             PopulateGraph();
             ConstructGraph();

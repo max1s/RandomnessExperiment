@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RandomnessExperiment
 {
-    class OvalGraph : Graph
+    class LineGraph : Graph
     {
-        public OvalGraph(int noOfVertices)
+        public LineGraph(int noOfVertices)
         {
             myOrder = 2;
             myNumberOfVertices = noOfVertices;

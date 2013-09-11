@@ -22,16 +22,101 @@ namespace RandomnessExperiment
             }
         }
 
-        public void AllNeighbourSwapVertices(int numberOfSwaps)
+
+        public int ParallelNeighbourSwap()
         {
+            int numberOfSwaps = 0;
+            List<Vertex> swapWith = new List<Vertex>();
+            List<Vertex> exhausted = new List<Vertex>();
+            foreach (Vertex v in myVertices)
+            {
+                swapWith.Add(myVertices[v.myEdges[randomSeed.Next(myOrder)].mySecondVertex]);
+
+            }
+          
+            for (int i = 0; i < myNumberOfVertices; i++)
+            {
+                Vertex vertexToSwap = myVertices[i];
+                Vertex neighbourToSwapWith = myVertices[swapWith[i].myID];
+                //Console.WriteLine(i + " : " + swapWith[i]);
+                //Console.WriteLine(swapWith[i] + " : " + swapWith[swapWith[i].myID]);
+                //Console.WriteLine("---------------");
+
+                if (myVertices[i] == swapWith[swapWith[i].myID] && !exhausted.Contains(swapWith[i]))
+                {
+                    numberOfSwaps++;
+
+                    int firstRandom = randomSeed.Next(myOrder - 1);
+                    int secondRandom = randomSeed.Next(myOrder - 1);
+
+                    Edge firstEdgetoSwap = vertexToSwap.myEdges[firstRandom];
+                    Edge secondEdgetoSwap = neighbourToSwapWith.myEdges[secondRandom];
+                    Edge temp;
+
+                    if (firstEdgetoSwap.mySecondVertex == neighbourToSwapWith.myID)
+                    {
+                        firstRandom = 0;
+                        foreach (Edge edge in vertexToSwap.myEdges)
+                        {
+
+                            //!edge.isBeingSwapped && 
+                            if (!(edge.mySecondVertex == neighbourToSwapWith.myID))
+                            {
+                                firstEdgetoSwap = edge;
+                                //  Console.WriteLine(" first edge now swapped to: " + firstEdgetoSwap);
+                                break;
+
+                            }
+                            firstRandom++;
+                        }
+
+                    }
+
+                    //secondEdgetoSwap.isBeingSwapped ||
+                    if (secondEdgetoSwap.mySecondVertex == vertexToSwap.myID)
+                    {
+                        secondRandom = 0;
+                        foreach (Edge edge in neighbourToSwapWith.myEdges)
+                        {                            // !edge.isBeingSwapped &&
+                            if (!(edge.mySecondVertex == vertexToSwap.myID))
+                            {
+                                secondEdgetoSwap = edge;
+                                // Console.WriteLine(" second edge now swapped to: " + secondEdgetoSwap);
+                                break;
+                            }
+                            secondRandom++;
+                        }
+
+                    }
+                    //Console.WriteLine( " First Vertex picked: " + vertexToSwap.myID);
+                    //Console.WriteLine(" Second Vertex picked: " + neighbourToSwapWith.myID);
+                    //Console.WriteLine(" attempt first Edge picked: " + firstEdgetoSwap);
+                    //Console.WriteLine(" attempt second Edge picked: " + secondEdgetoSwap);
+
+                    myVertices[firstEdgetoSwap.mySecondVertex].myEdges.Find(x => x.mySecondVertex == firstEdgetoSwap.myFirstVertex).mySecondVertex = secondEdgetoSwap.myFirstVertex;
+                    myVertices[secondEdgetoSwap.mySecondVertex].myEdges.Find(x => x.mySecondVertex == secondEdgetoSwap.myFirstVertex).mySecondVertex = firstEdgetoSwap.myFirstVertex;
+
+                    //
+
+                    temp = new Edge(secondEdgetoSwap.myFirstVertex, secondEdgetoSwap.mySecondVertex);
+
+                    temp.mySecondVertex = firstEdgetoSwap.mySecondVertex;
+                    firstEdgetoSwap.mySecondVertex = secondEdgetoSwap.mySecondVertex;
+                    secondEdgetoSwap = temp;
+
+                    myVertices[vertexToSwap.myID].myEdges[firstRandom] = firstEdgetoSwap;
+                    myVertices[neighbourToSwapWith.myID].myEdges[secondRandom] = secondEdgetoSwap;
+
+                }
+                exhausted.Add(vertexToSwap);
+                exhausted.Add(neighbourToSwapWith);
+            }
+
+
+            return numberOfSwaps;
         }
 
-        public void SwapVertices()
-        {
-            //Implement for 17/08/2013
-        }
-
-        public void NeighbourSwapVertices(int numberOfSwaps)
+        public void SingleNeighbourSwap(int numberOfSwaps)
         {
 
             //makes sure doesnt process same vertex twice in same operation.
@@ -56,6 +141,7 @@ namespace RandomnessExperiment
                 Edge firstEdgetoSwap = vertexToSwap.myEdges[firstRandom];
                 Edge secondEdgetoSwap = neighbourToSwapWith.myEdges[secondRandom];
                 Edge temp;
+
 
                // Console.WriteLine( " First Vertex picked: " + vertexToSwap.myID);
                // Console.WriteLine(" Second Vertex picked: " + neighbourToSwapWith.myID);
